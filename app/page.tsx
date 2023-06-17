@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from "../lib/mui";
+import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "../lib/mui";
 import DeleteIcon from '../lib/icons';
 import axios from "axios";
 import Menu from "../src/components/menu";
@@ -7,7 +6,6 @@ import Link from "next/link";
 
 async function getData() {
     const res = await axios.get('https://api-deslocamento.herokuapp.com/api/v1/Cliente')
-
     return res.data
 }
 
@@ -17,6 +15,11 @@ export default async function Page() {
     return (
         <main>
             <Menu />
+            <Button variant="contained" sx={{ width: '50%', margin: '2rem auto' }}>
+                <Link href={'/criar/cliente'}>
+                    Criar Cliente
+                </Link>
+            </Button>
             <TableContainer>
                 <Table>
                     <TableHead>
@@ -28,7 +31,7 @@ export default async function Page() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {data.map((item) => (
+                        {data.map((item: typeof data) => (
                             <TableRow key={item.id}>
                                 <TableCell>{item.id}</TableCell>
                                 <TableCell>{item.nome}</TableCell>
@@ -37,7 +40,7 @@ export default async function Page() {
                                         [Editar]
                                     </Link>
                                 </TableCell>
-                                <TableCell><DeleteIcon /></TableCell>
+                                <TableCell><DeleteIcon color="error" sx={{cursor: 'pointer'}}/></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
