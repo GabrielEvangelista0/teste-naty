@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AppBar, Box, Button, Stack, Toolbar, Typography } from "../../lib/mui";
+import { AppBar, Box, Button, Stack, Toolbar, Typography } from "../lib/mui";
 
 export default function Menu() {
     return (

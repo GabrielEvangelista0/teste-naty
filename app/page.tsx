@@ -1,5 +1,5 @@
-import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "../lib/mui";
-import DeleteIcon from '../lib/icons';
+import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "../src/lib/mui";
+import DeleteIcon from '../src/lib/icons';
 import axios from "axios";
 import Menu from "../src/components/menu";
 import Link from "next/link";
@@ -36,7 +36,7 @@ export default async function Page() {
                                 <TableCell>{item.id}</TableCell>
                                 <TableCell>{item.nome}</TableCell>
                                 <TableCell>
-                                    <Link href={`${item.id}`}>
+                                    <Link href={`/editar/cliente/${item.id}`}>
                                         [Editar]
                                     </Link>
                                 </TableCell>
