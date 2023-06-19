@@ -4,16 +4,31 @@ import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import Menu from "../../../src/components/menu";
 
+interface Deslocamento{
+  kmInicial: number;
+  kmFinal: number;
+  inicioDeslocamento: Date;
+  fimDeslocamento: Date;
+  checkList: string;
+  motivo: string;
+  observacao: string;
+  idCondutor: number;
+  idVeiculo: number;
+  idCliente: number;
+}
+
 export default function Cliente() {
-  const [formData, setFormData] = useState<Cliente>({
-    nome: "",
-    tipoDocumento: "",
-    numeroDocumento: "",
-    bairro: '',
-    cidade: '',
-    logradouro: '',
-    numero: '',
-    uf: ''
+  const [formData, setFormData] = useState<Deslocamento>({
+    kmInicial: 0,
+    kmFinal: 0,
+    inicioDeslocamento: new Date(),
+    fimDeslocamento: new Date(),
+    checkList: '',
+    motivo: '',
+    observacao: '',
+    idCondutor: 0,
+    idVeiculo: 0,
+    idCliente: 0
   });
   console.log(formData)
 
@@ -25,7 +40,7 @@ export default function Cliente() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const res = await axios.post('https://api-deslocamento.herokuapp.com/api/v1/Cliente', formData, {
+      const res = await axios.post('https://api-deslocamento.herokuapp.com/api/v1/Veiculo', formData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -43,9 +58,9 @@ export default function Cliente() {
         <TextField
           variant="standard"
           sx={{ m: 3 }}
-          label="Nome"
-          name="nome"
-          value={formData.nome}
+          label="KM Inicial"
+          name="kmInicial"
+          value={formData.kmInicial}
           onChange={handleChange}
           required
           fullWidth
@@ -53,9 +68,10 @@ export default function Cliente() {
         <TextField
           variant="standard"
           sx={{ m: 3 }}
-          label="Tipo do documento"
-          name="tipoDocumento"
-          value={formData.tipoDocumento}
+          label="Inicio Deslocamento"
+          type="date"
+          name="inicioDeslocamento"
+          value={formData.inicioDeslocamento}
           onChange={handleChange}
           required
           fullWidth
@@ -63,9 +79,9 @@ export default function Cliente() {
         <TextField
           variant="standard"
           sx={{ m: 3 }}
-          label="Numero do documento"
-          name="numeroDocumento"
-          value={formData.numeroDocumento}
+          label="motivo"
+          name="motivo"
+          value={formData.motivo}
           onChange={handleChange}
           required
           fullWidth
@@ -73,9 +89,9 @@ export default function Cliente() {
         <TextField
           variant="standard"
           sx={{ m: 3 }}
-          label="Logradouro"
-          name="logradouro"
-          value={formData.logradouro}
+          label="Observacão"
+          name="observacao"
+          value={formData.observacao}
           onChange={handleChange}
           required
           fullWidth
@@ -83,9 +99,9 @@ export default function Cliente() {
         <TextField
           variant="standard"
           sx={{ m: 3 }}
-          label="Numero"
-          name="numero"
-          value={formData.numero}
+          label="checkList"
+          name="checkList"
+          value={formData.checkList}
           onChange={handleChange}
           required
           fullWidth
@@ -93,9 +109,9 @@ export default function Cliente() {
         <TextField
           variant="standard"
           sx={{ m: 3 }}
-          label="Bairro"
-          name="bairro"
-          value={formData.bairro}
+          label="ID Condutor"
+          name="idCondutor"
+          value={formData.idCondutor}
           onChange={handleChange}
           required
           fullWidth
@@ -103,9 +119,9 @@ export default function Cliente() {
         <TextField
           variant="standard"
           sx={{ m: 3 }}
-          label="Cidade"
-          name="cidade"
-          value={formData.cidade}
+          label="ID Veiculo"
+          name="idVeiculo"
+          value={formData.idVeiculo}
           onChange={handleChange}
           required
           fullWidth
@@ -113,9 +129,9 @@ export default function Cliente() {
         <TextField
           variant="standard"
           sx={{ m: 3 }}
-          label="UF"
-          name="uf"
-          value={formData.uf}
+          label="ID Cliente"
+          name="idCliente"
+          value={formData.idCliente}
           onChange={handleChange}
           required
           fullWidth

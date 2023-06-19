@@ -1,18 +1,18 @@
 'use client';
 import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import DeleteIcon from '../src/lib/icons';
+import DeleteIcon from '../../src/lib/icons';
 import axios from "axios";
-import Menu from "../src/components/menu";
+import Menu from "../../src/components/menu";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
 async function getData() {
-    const res = await axios.get('https://api-deslocamento.herokuapp.com/api/v1/Cliente')
+    const res = await axios.get('https://api-deslocamento.herokuapp.com/api/v1/Deslocamento')
     return res.data
 }
 
-export default function Page() {
-    const [data, setData] = useState<Cliente[]>([])
+export default function Deslocamento() {
+    const [data, setData] = useState<Deslocamento[]>([])
     console.log(data)
     useEffect(() => {
         const fetchData = async () => {
@@ -39,8 +39,8 @@ export default function Page() {
         <main>
             <Menu />
             <Button variant="contained" sx={{ width: '50%', margin: '2rem auto' }}>
-                <Link href={'/criar/cliente'}>
-                    Criar Cliente
+                <Link href={'/criar/deslocamento'}>
+                    Criar Deslocamento
                 </Link>
             </Button>
             <TableContainer>
@@ -48,7 +48,10 @@ export default function Page() {
                     <TableHead>
                         <TableRow>
                             <TableCell>ID</TableCell>
-                            <TableCell>Name</TableCell>
+                            <TableCell>ID Cliente</TableCell>
+                            <TableCell>ID Condutor</TableCell>
+                            <TableCell>Inicio Deslocamento</TableCell>
+                            <TableCell>Motivo</TableCell>
                             <TableCell>Editar</TableCell>
                             <TableCell>Excluir</TableCell>
                         </TableRow>
@@ -57,7 +60,10 @@ export default function Page() {
                         {data.map((item) => (
                             <TableRow key={item.id}>
                                 <TableCell>{item.id}</TableCell>
-                                <TableCell>{item.nome}</TableCell>
+                                <TableCell>{item.idCliente}</TableCell>
+                                <TableCell>{item.idCondutor}</TableCell>
+                                <TableCell>{item.inicioDeslocamento}</TableCell>
+                                <TableCell>{item.motivo}</TableCell>
                                 <TableCell>
                                     <Link href={`/editar/cliente/${item.id}`}>
                                         [Editar]

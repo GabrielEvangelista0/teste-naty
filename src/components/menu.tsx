@@ -15,17 +15,17 @@ export default function Menu() {
                         </Link>
                     </Button>
                     <Button color="inherit">
-                        <Link href="/" passHref>
+                        <Link href="/condutor" passHref>
                             Condutor
                         </Link>
                     </Button>
                     <Button color="inherit">
-                        <Link href="/" passHref>
+                        <Link href="/deslocamento" passHref>
                             Deslocamento
                         </Link>
                     </Button>
                     <Button color="inherit">
-                        <Link href="/" passHref>
+                        <Link href="/veiculo" passHref>
                         Veiculo
                         </Link>
                     </Button>
