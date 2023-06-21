@@ -4,8 +4,18 @@ import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import Menu from "../../../src/components/menu";
 
+interface Formdata{
+    nome: string;
+    tipoDocumento: string;
+    numeroDocumento: string;
+    logradouro: string;
+    numero: string;
+    bairro: string;
+    cidade: string;
+    uf: string;
+}
 export default function Cliente() {
-  const [formData, setFormData] = useState<Cliente>({
+  const [formData, setFormData] = useState<Formdata>({
     nome: "",
     tipoDocumento: "",
     numeroDocumento: "",

@@ -5,26 +5,18 @@ import axios from "axios";
 import Menu from "../../../src/components/menu";
 
 interface FormData {
-  nome: string;
-  tipoDocumento: string;
-  numeroDocumento: string;
-  logradouro: string;
-  numero: string;
-  bairro: string;
-  cidade: string;
-  uf: string;
+  placa: string
+  marcaModelo: string
+  anoFabricacao: number
+  kmAtual: number
 }
 
 export default function Cliente() {
   const [formData, setFormData] = useState<FormData>({
-    nome: "",
-    tipoDocumento: "",
-    numeroDocumento: "",
-    bairro: '',
-    cidade: '',
-    logradouro: '',
-    numero: '',
-    uf: ''
+    placa: "",
+    marcaModelo: "",
+    anoFabricacao: 0,
+    kmAtual: 0
   });
   console.log(formData)
 
@@ -36,7 +28,7 @@ export default function Cliente() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const res = await axios.post('https://api-deslocamento.herokuapp.com/api/v1/Cliente', formData, {
+      const res = await axios.post('https://api-deslocamento.herokuapp.com/api/v1/Veiculo', formData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -54,9 +46,9 @@ export default function Cliente() {
         <TextField
           variant="standard"
           sx={{ m: 3 }}
-          label="Nome"
-          name="nome"
-          value={formData.nome}
+          label="Marca/modelo"
+          name="marcaModelo"
+          value={formData.marcaModelo}
           onChange={handleChange}
           required
           fullWidth
@@ -64,9 +56,9 @@ export default function Cliente() {
         <TextField
           variant="standard"
           sx={{ m: 3 }}
-          label="Tipo do documento"
-          name="tipoDocumento"
-          value={formData.tipoDocumento}
+          label="Placa"
+          name="placa"
+          value={formData.placa}
           onChange={handleChange}
           required
           fullWidth
@@ -74,9 +66,10 @@ export default function Cliente() {
         <TextField
           variant="standard"
           sx={{ m: 3 }}
-          label="Numero do documento"
-          name="numeroDocumento"
-          value={formData.numeroDocumento}
+          label="Ano fabricação"
+          name="anoFabricacao"
+          type="number"
+          value={formData.anoFabricacao}
           onChange={handleChange}
           required
           fullWidth
@@ -84,49 +77,10 @@ export default function Cliente() {
         <TextField
           variant="standard"
           sx={{ m: 3 }}
-          label="Logradouro"
-          name="logradouro"
-          value={formData.logradouro}
-          onChange={handleChange}
-          required
-          fullWidth
-        />
-        <TextField
-          variant="standard"
-          sx={{ m: 3 }}
-          label="Numero"
-          name="numero"
-          value={formData.numero}
-          onChange={handleChange}
-          required
-          fullWidth
-        />
-        <TextField
-          variant="standard"
-          sx={{ m: 3 }}
-          label="Bairro"
-          name="bairro"
-          value={formData.bairro}
-          onChange={handleChange}
-          required
-          fullWidth
-        />
-        <TextField
-          variant="standard"
-          sx={{ m: 3 }}
-          label="Cidade"
-          name="cidade"
-          value={formData.cidade}
-          onChange={handleChange}
-          required
-          fullWidth
-        />
-        <TextField
-          variant="standard"
-          sx={{ m: 3 }}
-          label="UF"
-          name="uf"
-          value={formData.uf}
+          label="Km Atual"
+          name="kmAtual"
+          type="number"
+          value={formData.kmAtual}
           onChange={handleChange}
           required
           fullWidth

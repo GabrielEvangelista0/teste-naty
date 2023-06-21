@@ -6,9 +6,7 @@ import Menu from "../../../src/components/menu";
 
 interface Deslocamento{
   kmInicial: number;
-  kmFinal: number;
-  inicioDeslocamento: Date;
-  fimDeslocamento: Date;
+  inicioDeslocamento: string;
   checkList: string;
   motivo: string;
   observacao: string;
@@ -20,9 +18,7 @@ interface Deslocamento{
 export default function Cliente() {
   const [formData, setFormData] = useState<Deslocamento>({
     kmInicial: 0,
-    kmFinal: 0,
-    inicioDeslocamento: new Date(),
-    fimDeslocamento: new Date(),
+    inicioDeslocamento: JSON.stringify(new Date()),
     checkList: '',
     motivo: '',
     observacao: '',
@@ -40,7 +36,7 @@ export default function Cliente() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const res = await axios.post('https://api-deslocamento.herokuapp.com/api/v1/Veiculo', formData, {
+      const res = await axios.post( 'https://api-deslocamento.herokuapp.com/api/v1/Deslocamento/IniciarDeslocamento', formData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -65,17 +61,7 @@ export default function Cliente() {
           required
           fullWidth
         />
-        <TextField
-          variant="standard"
-          sx={{ m: 3 }}
-          label="Inicio Deslocamento"
-          type="date"
-          name="inicioDeslocamento"
-          value={formData.inicioDeslocamento}
-          onChange={handleChange}
-          required
-          fullWidth
-        />
+        
         <TextField
           variant="standard"
           sx={{ m: 3 }}
@@ -137,7 +123,7 @@ export default function Cliente() {
           fullWidth
         />
         <Button type="submit" variant="contained" color="primary">
-          enviar
+          Iniciar deslocamento
         </Button>
       </form>
     </main>

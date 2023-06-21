@@ -39,7 +39,7 @@ export default function Deslocamento() {
         <main>
             <Menu />
             <Button variant="contained" sx={{ width: '50%', margin: '2rem auto' }}>
-                <Link href={'/criar/cliente'}>
+                <Link href={'/criar/veiculo'}>
                     Criar Veículo
                 </Link>
             </Button>
