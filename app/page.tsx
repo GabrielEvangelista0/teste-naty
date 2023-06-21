@@ -5,6 +5,7 @@ import axios from "axios";
 import Menu from "../src/components/menu";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import deleteItem from "../src/service/deleteItem";
 
 async function getData() {
     const res = await axios.get('https://api-deslocamento.herokuapp.com/api/v1/Cliente')
@@ -22,15 +23,7 @@ export default function Page() {
     
         fetchData();
       }, []);
-    async function deleteItem(id: number) {
-        console.log(id);
-        try {
-            await axios.delete(`https://api-deslocamento.herokuapp.com/api/v1/Cliente/${id}`, {data: {id: id}});
-            alert('Delete successful');
-        } catch (error) {
-            console.log(error);
-        }
-    }
+
     return (
         <main>
             <Menu />
