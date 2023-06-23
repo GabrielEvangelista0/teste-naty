@@ -59,7 +59,7 @@ export default function Deslocamento() {
                                     </Link>
                                 </TableCell>
                                 <TableCell>
-                                    <Button onClick={() => { deleteItem(item.id) }}>
+                                    <Button onClick={() => { deleteItem(item.id, 'Veiculo') }}>
                                         <DeleteIcon color="error" />
                                     </Button>
                                 </TableCell>

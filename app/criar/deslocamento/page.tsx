@@ -18,7 +18,7 @@ interface Deslocamento{
 export default function Cliente() {
   const [formData, setFormData] = useState<Deslocamento>({
     kmInicial: 0,
-    inicioDeslocamento: JSON.stringify(new Date()),
+    inicioDeslocamento: new Date().toISOString(),
     checkList: '',
     motivo: '',
     observacao: '',

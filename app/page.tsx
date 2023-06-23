@@ -53,7 +53,7 @@ export default function Page() {
                                     </Link>
                                 </TableCell>
                                 <TableCell>
-                                    <Button onClick={() => { deleteItem(item.id) }}>
+                                    <Button onClick={() => { deleteItem(item.id, 'Cliente') }}>
                                         <DeleteIcon color="error" />
                                     </Button>
                                 </TableCell>

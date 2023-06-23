@@ -59,7 +59,7 @@ export default function Condutor() {
                                     </Link>
                                 </TableCell>
                                 <TableCell>
-                                    <Button onClick={() => { deleteItem(item.id) }}>
+                                    <Button onClick={() => { deleteItem(item.id, 'Condutor') }}>
                                         <DeleteIcon color="error" />
                                     </Button>
                                 </TableCell>
