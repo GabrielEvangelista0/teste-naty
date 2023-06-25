@@ -1,15 +1,13 @@
 "use client";
 import { useState } from "react";
 import { Button, TextField } from "@mui/material";
-import axios from "axios";
 import Menu from "../../../src/components/menu";
 import createItem from "../../../src/service/createItem";
 
 interface FormData{
     nome: string;
-    catergoriaHabilitacao: string;
-    numeroHabilitacao: string;
     categoriaHabilitacao: string;
+    numeroHabilitacao: string;
     vencimentoHabilitacao: string;
 }
 
@@ -18,9 +16,8 @@ interface FormData{
 export default function Cliente() {
   const [formData, setFormData] = useState<FormData>({
     nome: "",
-    catergoriaHabilitacao: "",
+    categoriaHabilitacao: "",
     numeroHabilitacao: "",
-    categoriaHabilitacao: '',
     vencimentoHabilitacao: new Date().toISOString()
   });
   console.log(formData)

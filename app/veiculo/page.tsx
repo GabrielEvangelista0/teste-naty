@@ -54,7 +54,7 @@ export default function Deslocamento() {
                                 <TableCell>{item.anoFabricacao}</TableCell>
                                 <TableCell>{item.kmAtual}</TableCell>
                                 <TableCell>
-                                    <Link href={`/editar/cliente/${item.id}`}>
+                                    <Link href={`/editar/veiculo/${item.id}`}>
                                         [Editar]
                                     </Link>
                                 </TableCell>
