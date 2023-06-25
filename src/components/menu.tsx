@@ -20,7 +20,7 @@ export default function NavBar() {
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h1" component="h1" fontSize="2rem" sx={{ flexGrow: 1 }}>
-          ola mundo
+          Admin api deslocamento
         </Typography>
         <Box sx={{ display: { xs: "block", md: "none" } }}>
           <IconButton
