@@ -53,7 +53,7 @@ export default function Deslocamento() {
                                 <TableCell>{item.inicioDeslocamento}</TableCell>
                                 <TableCell>{item.motivo}</TableCell>
                                 <TableCell>
-                                    <Link href={`/editar/cliente/${item.id}`}>
+                                    <Link href={`/editar/deslocamento/${item.id}`}>
                                         [Encerrar deslocamento]
                                     </Link>
                                 </TableCell>

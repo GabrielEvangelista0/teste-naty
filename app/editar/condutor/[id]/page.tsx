@@ -63,8 +63,6 @@ export default function Cliente() {
         });
     };
 
-
-
     return (
         <main>
             <Menu />
