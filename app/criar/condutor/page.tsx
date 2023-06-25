@@ -3,14 +3,25 @@ import { useState } from "react";
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import Menu from "../../../src/components/menu";
+import createItem from "../../../src/service/createItem";
+
+interface FormData{
+    nome: string;
+    catergoriaHabilitacao: string;
+    numeroHabilitacao: string;
+    categoriaHabilitacao: string;
+    vencimentoHabilitacao: string;
+}
+
+//'https://api-deslocamento.herokuapp.com/api/v1/Condutor'
 
 export default function Cliente() {
-  const [formData, setFormData] = useState<Condutor>({
+  const [formData, setFormData] = useState<FormData>({
     nome: "",
     catergoriaHabilitacao: "",
     numeroHabilitacao: "",
     categoriaHabilitacao: '',
-    vencimentoHabilitacao: new Date()
+    vencimentoHabilitacao: new Date().toISOString()
   });
   console.log(formData)
 
@@ -21,16 +32,7 @@ export default function Cliente() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    try {
-      const res = await axios.post('https://api-deslocamento.herokuapp.com/api/v1/Condutor', formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      console.log('Item criado', res)
-    } catch (error) {
-      console.log(error)
-    }
+   createItem('https://api-deslocamento.herokuapp.com/api/v1/Condutor', formData)
   };
 
   return (

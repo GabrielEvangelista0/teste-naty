@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import Menu from "../../../src/components/menu";
+import createItem from "../../../src/service/createItem";
 
 interface Deslocamento{
   kmInicial: number;
@@ -35,16 +36,8 @@ export default function Cliente() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    try {
-      const res = await axios.post( 'https://api-deslocamento.herokuapp.com/api/v1/Deslocamento/IniciarDeslocamento', formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      console.log('Item criado', res)
-    } catch (error) {
-      console.log(error)
-    }
+    //'https://api-deslocamento.herokuapp.com/api/v1/Deslocamento/IniciarDeslocamento'
+   createItem('https://api-deslocamento.herokuapp.com/api/v1/Deslocamento/IniciarDeslocamento', formData)
   };
 
   return (

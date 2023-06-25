@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import Menu from "../../../src/components/menu";
+import createItem from "../../../src/service/createItem";
 
 interface Formdata{
     nome: string;
@@ -34,16 +35,8 @@ export default function Cliente() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    try {
-      const res = await axios.post('https://api-deslocamento.herokuapp.com/api/v1/Cliente', formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      console.log('Item criado', res)
-    } catch (error) {
-      console.log(error)
-    }
+    //'https://api-deslocamento.herokuapp.com/api/v1/Cliente'
+    createItem('https://api-deslocamento.herokuapp.com/api/v1/Cliente', formData)
   };
 
   return (
