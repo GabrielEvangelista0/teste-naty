@@ -14,7 +14,6 @@ async function getData() {
 
 export default function Page() {
     const [data, setData] = useState<Cliente[]>([])
-    console.log(data)
     useEffect(() => {
         const fetchData = async () => {
           const data = await getData();

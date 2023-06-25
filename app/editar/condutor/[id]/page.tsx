@@ -86,6 +86,7 @@ export default function Cliente() {
                     value={formData.vencimentoHabilitacao}
                     onChange={handleChange}
                     fullWidth
+                    required
                 />
                 <Button type="submit" variant="contained" color="primary">
                     enviar

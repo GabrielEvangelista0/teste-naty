@@ -14,7 +14,6 @@ async function getData() {
 
 export default function Condutor() {
     const [data, setData] = useState<Condutor[]>([])
-    console.log(data)
     useEffect(() => {
         const fetchData = async () => {
             const data = await getData();

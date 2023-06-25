@@ -14,7 +14,6 @@ async function getData() {
 
 export default function Deslocamento() {
     const [data, setData] = useState<Veiculo[]>([])
-    console.log(data)
     useEffect(() => {
         const fetchData = async () => {
           const data = await getData();
