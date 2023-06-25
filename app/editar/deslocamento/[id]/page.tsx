@@ -42,12 +42,12 @@ export default function Cliente() {
         fetchData();
     }, [params.id]);
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         const { name, value } = event.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
-    };
+    }
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         await putItem(`https://api-deslocamento.herokuapp.com/api/v1/Deslocamento/${params.id}/EncerrarDeslocamento`, formData);
         //Atualiza dados da tabela e formulario
@@ -59,7 +59,7 @@ export default function Cliente() {
             fimDeslocamento: updatedData.fimDeslocamento,
             observacao: updatedData.observacao
         });
-    };
+    }
 
     return (
         <main>

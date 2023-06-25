@@ -42,14 +42,14 @@ export default function Cliente() {
         fetchData();
     }, [params.id]);
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         const { name, value } = event.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
-    };
+    }
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        await putItem(`https://api-deslocamento.herokuapp.com/api/v1/Veiculo/${params.id}`, formData)
+        await putItem(`https://api-deslocamento.herokuapp.com/api/v1/Veiculo/${params.id}`, formData);
         //Atualiza dados da tabela
         const updatedData: Veiculo = await getData(params.id);
         setVeiculoData(updatedData);
@@ -59,7 +59,7 @@ export default function Cliente() {
             anoFabricacao: updatedData.anoFabricacao,
             kmAtual: updatedData.kmAtual
         });
-    };
+    }
 
     return (
         <main>

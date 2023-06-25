@@ -29,16 +29,16 @@ export default function Cliente() {
   });
   console.log(formData)
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
+  }
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     //'https://api-deslocamento.herokuapp.com/api/v1/Deslocamento/IniciarDeslocamento'
-   createItem('https://api-deslocamento.herokuapp.com/api/v1/Deslocamento/IniciarDeslocamento', formData)
-  };
+    createItem('https://api-deslocamento.herokuapp.com/api/v1/Deslocamento/IniciarDeslocamento', formData);
+  }
 
   return (
     <main>

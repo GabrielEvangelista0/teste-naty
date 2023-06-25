@@ -41,10 +41,10 @@ export default function EditarCliente() {
       }, [params.id]);
     
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         const { name, value } = event.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
-    };
+    }
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
