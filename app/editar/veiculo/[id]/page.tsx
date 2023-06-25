@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from "@mui/material";
 import axios from "axios";
-import Menu from "../../../../src/components/menu";
+import NavBar from "../../../../src/components/menu";
 import putItem from "../../../../src/service/putItem";
 import { useParams } from "next/navigation";
 
@@ -63,7 +63,7 @@ export default function Cliente() {
 
     return (
         <main>
-            <Menu />
+            <NavBar />
             <form onSubmit={handleSubmit}>
                 <TextField
                     variant="standard"

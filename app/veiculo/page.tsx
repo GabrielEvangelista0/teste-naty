@@ -2,7 +2,7 @@
 import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import DeleteIcon from '../../src/lib/icons';
 import axios from "axios";
-import Menu from "../../src/components/menu";
+import NavBar from "../../src/components/menu";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import deleteItem from "../../src/service/deleteItem";
@@ -26,7 +26,7 @@ export default function Deslocamento() {
     
     return (
         <main>
-            <Menu />
+            <NavBar />
             <Button variant="contained" sx={{ width: '50%', margin: '2rem auto' }}>
                 <Link href={'/criar/veiculo'}>
                     Criar Veículo

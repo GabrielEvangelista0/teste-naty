@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
-import Menu from "../../../src/components/menu";
+import NavBar from "../../../src/components/menu";
 import createItem from "../../../src/service/createItem";
 
 interface FormData {
@@ -34,7 +34,7 @@ export default function Cliente() {
 
   return (
     <main>
-      <Menu/>
+      <NavBar/>
       <form onSubmit={handleSubmit}>
         <TextField
           variant="standard"

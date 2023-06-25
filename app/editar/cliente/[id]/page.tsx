@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Button, TextField } from "@mui/material";
 import { useParams } from "next/navigation";
 import axios from "axios";
-import Menu from "../../../../src/components/menu";
+import NavBar from "../../../../src/components/menu";
 
 interface FormData {
     nome: string;
@@ -58,7 +58,7 @@ export default function EditarCliente() {
 
     return (
         <main>
-            <Menu/>
+            <NavBar/>
             <form onSubmit={handleSubmit}>
 
                 <TextField
